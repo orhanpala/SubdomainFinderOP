@@ -2,9 +2,7 @@
 """
 Subdomain Finder - simple, fast, and extensible.
 
-Usage:
-  python subfinder.py -d example.com -w wordlists/subdomains_small.txt
-  python subfinder.py -d example.com -w subs.txt -t 50 --timeout 3 --show-ips -o results.json
+
 
 Author: orhan pala
 License: MIT
@@ -37,7 +35,7 @@ def read_wordlist(path: str) -> List[str]:
             ok = all(c.isalnum() or c in "-_" for c in s)
             if ok:
                 subs.append(s.replace("_", "-"))
-    # remove duplicates preserving order
+  
     seen = set()
     unique = []
     for s in subs:
@@ -48,7 +46,7 @@ def read_wordlist(path: str) -> List[str]:
 
 
 def resolve_dns(host: str, timeout: float) -> List[str]:
-    # socket timeout global
+   
     old_to = socket.getdefaulttimeout()
     socket.setdefaulttimeout(timeout)
     try:
@@ -171,7 +169,7 @@ def main():
             if item:
                 results.append(item)
 
-    # sort alphabetically
+  
     results.sort(key=lambda x: x["host"])
 
     print(f"\nDone. Found {len(results)} subdomains in {time.time() - started:.1f}s.")
