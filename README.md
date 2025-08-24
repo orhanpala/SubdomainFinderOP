@@ -1,32 +1,42 @@
-# SubdomainFinder
+# SubdomainFinder ORHAN PALA
+# SubdomainFinderOP
 
-Basit ve hızlı bir **Subdomain Finder** aracı. Wordlist ile brute-force yapar, DNS resolve eder ve isteğe bağlı HTTP probe gerçekleştirir.
+Basit ve hızlı bir **Subdomain Finder** aracı.  
+Wordlist ile brute-force yapar, DNS resolve eder ve isteğe bağlı HTTP probe gerçekleştirir.  
 
-> ⚠️ **Yasal Uyarı**: Bu aracı sadece **izin verilen** hedeflerde kullanın. Tüm sorumluluk kullanıcıya aittir.
+---
 
-## Özellikler
-- Wordlist'den subdomain denemesi
-- DNS resolve (IP'leri opsiyonel gösterme)
+## 🚀 Özellikler
+- Wordlist üzerinden subdomain brute-force
+- DNS resolve (opsiyonel IP gösterimi)
 - HTTP/HTTPS probe (alive kontrolü)
 - Çok iş parçacıklı (threading) hızlı tarama
 - JSON veya TXT çıktı kaydı
-- Sıfır ek bağımlılık (sadece `requests`)
+- Minimum bağımlılık (sadece `requests` kütüphanesi)
 
-## Kurulum
+----------------------------------------------------------------------------------
+
+## 🔧 Kurulum
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/SubdomainFinder.git
-cd SubdomainFinder
+git clone https://github.com/orhanpala/SubdomainFinderOP.git
+cd SubdomainFinderOP
+
+# Sanal ortam oluşturma (opsiyonel)
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
+# Windows
+.venv\Scripts\activate
+# Linux / macOS
+source .venv/bin/activate
 
-## Kullanım
-```bash
+# Bağımlılıkları yükle
+pip install -r requirements.txt
+
+----------------------------------------------------------------------------------
 # Temel kullanım
 python subfinder.py -d example.com -w wordlists/subdomains_small.txt
 
-# Daha detaylı
+# Daha detaylı kullanım
 python subfinder.py -d example.com -w subs.txt -t 50 --timeout 3 --show-ips -o results.json
 
 # DNS'i atla, sadece HTTP probe
@@ -34,28 +44,9 @@ python subfinder.py -d example.com -w subs.txt --skip-dns
 
 # HTTP probe'u atla, sadece DNS
 python subfinder.py -d example.com -w subs.txt --skip-http
-```
+-----------------------------------------------------------------------------
 
-Örnek çıktı:
-```
-[+] api.example.com 203.0.113.10
-[+] dev.example.com 203.0.113.20
 
-Done. Found 2 subdomains in 3.4s.
-Saved results to: results.json
-```
-
-## Wordlist
-Projedeki küçük bir başlangıç wordlist’i için: `wordlists/subdomains_small.txt`
-
-Daha büyük listeler için SecLists kullanabilirsiniz:
-- https://github.com/danielmiessler/SecLists (DNS/subdomains listeleri)
-
-## Yol Haritası
-- AsyncIO ile çok daha hızlı sürüm
-- Wildcard DNS tespiti ve eleme
-- `crt.sh` ve `hackertarget` gibi kaynaklardan pasif subdomain toplama
-- HTML raporu
 
 ## Lisans
 MIT
