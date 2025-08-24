@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Subdomain Finder - simple, fast, and extensible.
-
+burayı okuyorsan gönderimi paylas
 
 
 Author: orhan pala
