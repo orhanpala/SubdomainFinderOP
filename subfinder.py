@@ -1,4 +1,27 @@
 #!/usr/bin/env python3
+
+def banner():
+    print(r"""
+   ____        _     _           _           _             
+  / ___| _   _| |__ | | ___ _ __(_) ___  ___| |_ ___  _ __ 
+  \___ \| | | | '_ \| |/ _ \ '__| |/ _ \/ __| __/ _ \| '__|
+   ___) | |_| | |_) | |  __/ |  | |  __/ (__| || (_) | |   
+  |____/ \__,_|_.__/|_|\___|_|  |_|\___|\___|\__\___/|_|   
+
+        🔍 SubdomainFinderOP v1.0
+        👤 Author : orhanpala
+        🌐 GitHub : https://github.com/orhanpala/SubdomainFinderOP
+    """)
+
+
+
+
+
+
+
+
+
+
 """
 Subdomain Finder - simple, fast, and extensible.
 burayı okuyorsan gönderimi paylas
@@ -146,6 +169,10 @@ def parse_args():
 
 
 def main():
+    if __name__ == "__main__":
+    banner()
+    # geri kalan kodların burada çalışacak
+
     args = parse_args()
     if args.skip_dns and args.skip_http:
         print("At least one of DNS or HTTP probing must be enabled.")
